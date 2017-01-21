@@ -153,8 +153,8 @@ $defang_by_ccat{CC_BADH.",6"} = 1;  # header field syntax error
 
 # $myhostname = 'host.example.com';  # must be a fully-qualified domain name!
 
-$notify_method  = 'smtp:{{ if service "mail" }}{{ range service "mail" }}[{{ .Address }}]:{{ .Port }}{{ end }}{{ else }}[mail.weave.local]:10029{{ end }}';
-$forward_method = 'smtp:{{ if service "mail" }}{{ range service "mail" }}[{{ .Address }}]:{{ .Port }}{{ end }}{{ else }}[mail.weave.local]:10029{{ end }}';  # set to undef with milter!
+$notify_method  = 'smtp:{{ if service "mail-in-checked" }}{{ range service "mail-in-checked" }}[{{ .Address }}]:{{ .Port }}{{ end }}{{ else }}[mail.weave.local]:10029{{ end }}';
+$forward_method = 'smtp:{{ if service "mail-in-checked" }}{{ range service "mail-in-checked" }}[{{ .Address }}]:{{ .Port }}{{ end }}{{ else }}[mail.weave.local]:10029{{ end }}';  # set to undef with milter!
 
 $final_virus_destiny      = D_DISCARD;
 $final_banned_destiny     = D_DISCARD;
